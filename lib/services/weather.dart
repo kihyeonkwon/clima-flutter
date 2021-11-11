@@ -15,6 +15,12 @@ class WeatherModel {
     return weatherData;
   }
 
+  Future<dynamic> getCityWeather(cityName) async {
+    NetworkHelperCity networkHelperCity = NetworkHelperCity(cityName, appid);
+    var weatherData = networkHelperCity.getWeather();
+    return weatherData;
+  }
+
   String getWeatherIcon(int condition) {
     if (condition < 300) {
       return '🌩';

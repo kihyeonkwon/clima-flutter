@@ -23,3 +23,22 @@ class NetworkHelper {
     }
   }
 }
+
+class NetworkHelperCity {
+  final String appid;
+  final String cityName;
+
+  NetworkHelperCity(this.cityName, this.appid);
+
+  Future getWeather() async {
+    var url = Uri.https('api.openweathermap.org', '/data/2.5/weather',
+        {'q': '$cityName', 'appid': '$appid', 'units': 'metric'});
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse = convert.jsonDecode(response.body);
+      return jsonResponse;
+    } else {
+      print(response.statusCode);
+    }
+  }
+}

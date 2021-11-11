@@ -14,7 +14,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (context) {
           return LocationScreen(args);
         });
-      case 'city':
+      case '/city':
         return MaterialPageRoute(builder: (context) => CityScreen());
 
       default:
